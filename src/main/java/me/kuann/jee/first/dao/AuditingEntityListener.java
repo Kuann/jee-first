@@ -7,12 +7,13 @@
  * shall use it only in accordance with the terms of the license
  * agreement you entered into with AXON IVY AG.
  */
-package me.kuann.jee.first.entity;
+package me.kuann.jee.first.dao;
 
 import javax.ejb.Stateless;
 import javax.persistence.PrePersist;
-import javax.persistence.PreRemove;
 import javax.persistence.PreUpdate;
+
+import me.kuann.jee.first.model.BaseEntity;
 
 @Stateless
 public class AuditingEntityListener {
@@ -26,11 +27,6 @@ public class AuditingEntityListener {
 
 	@PreUpdate
 	public void onPreUpdate(BaseEntity entity) {
-		entity.setUpdateBy(getPrincipalName());
-	}
-
-	@PreRemove
-	public void onPreRemove(BaseEntity entity) {
 		entity.setUpdateBy(getPrincipalName());
 	}
 

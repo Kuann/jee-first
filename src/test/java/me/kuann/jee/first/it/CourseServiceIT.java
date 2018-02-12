@@ -15,7 +15,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import me.kuann.jee.first.dao.CourseDao;
-import me.kuann.jee.first.entity.CourseEntity;
+import me.kuann.jee.first.model.Course;
 
 @RunWith(Arquillian.class)
 @Cleanup(phase = TestExecutionPhase.BEFORE)
@@ -27,7 +27,13 @@ public class CourseServiceIT extends Deployments {
 	
 	@Test
 	public void test_getting_courses() {
-		List<CourseEntity> courses = courseDao.getAllData();
-		assertThat(courses.size(), is(1));
+		Course courseEntity = Course.builder()
+				.courseCode("PA231")
+				.courseName("Computer vision")
+				.build();
+		
+		courseDao.persist(courseEntity);
+		List<Course> courses = courseDao.getAllData();
+		assertThat(courses.size(), is(2));
 	}
 }

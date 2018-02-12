@@ -1,4 +1,4 @@
-package me.kuann.jee.first.entity;
+package me.kuann.jee.first.model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -14,6 +14,7 @@ import javax.persistence.TemporalType;
 
 import lombok.Getter;
 import lombok.Setter;
+import me.kuann.jee.first.dao.AuditingEntityListener;
 
 @Getter
 @Setter

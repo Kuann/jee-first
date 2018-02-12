@@ -22,9 +22,8 @@ import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.LocaleUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import me.kuann.jee.first.entity.AuditingEntityListener;
-import me.kuann.jee.first.entity.BaseEntity;
 import me.kuann.jee.first.exception.LocalizedException;
+import me.kuann.jee.first.model.BaseEntity;
 
 public abstract class BaseDao<T extends BaseEntity> {
 

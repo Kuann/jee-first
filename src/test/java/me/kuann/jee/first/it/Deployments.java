@@ -28,13 +28,12 @@ public class Deployments {
 	}
 	
 	private static WebArchive createDeployment() {
-		final PomEquippedResolveStage pomResolver = Maven.resolver().loadPomFromFile("pom.xml");
-		final WebArchive war = ShrinkWrap.create(WebArchive.class, "jee.war")
+		PomEquippedResolveStage pomResolver = Maven.resolver().loadPomFromFile("pom.xml");
+		return ShrinkWrap.create(WebArchive.class, "jee.war")
 				.addPackages(true, "me.kuann")
 				.addAsLibraries(pomResolver.importCompileAndRuntimeDependencies().resolve().withTransitivity().asFile())
 				.addAsWebInfResource(EmptyAsset.INSTANCE, "classes/META-INF/beans.xml")
 				.addAsResource("persistence.xml", "META-INF/persistence.xml")
 				.addAsWebInfResource("wildfly-ds.xml");
-		return war;
 	}
 }
