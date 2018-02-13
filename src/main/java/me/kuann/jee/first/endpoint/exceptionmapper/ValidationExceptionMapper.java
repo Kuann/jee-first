@@ -1,11 +1,8 @@
-package me.kuann.jee.first.filter;
+package me.kuann.jee.first.endpoint.exceptionmapper;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
-import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,12 +17,10 @@ public class ValidationExceptionMapper implements ExceptionMapper<Exception> {
 	@Override
 	public Response toResponse(Exception exception) {
 		Map<String, Object> map = new HashMap<>();
-		UUID uuid = UUID.randomUUID();
+		map.put("Time", LocalDateTime.now().toString());
+		map.put("Detai", exception.getMessage());
 
-		map.put("Time", new SimpleDateFormat("dd.MM.yyyy H:m:s", Locale.ENGLISH).format(new Date()));
-		map.put("Detail ", "UUID: " + uuid + " " + exception.getMessage());
-
-		Logger.getLogger(ValidationExceptionMapper.class.getName()).log(Level.SEVERE, "UUID: " + uuid + exception.getMessage(), exception);
+		Logger.getLogger(ValidationExceptionMapper.class.getName()).log(Level.SEVERE, exception.getMessage(), exception);
 
 		return Response.serverError().type(MediaType.APPLICATION_JSON).entity(map).build();
 	}
