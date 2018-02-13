@@ -10,6 +10,7 @@ public abstract class PublicBaseDao<T extends BaseEntity> extends BaseDao<T> {
 	@PersistenceContext(unitName = "kuannJeePU")
     private EntityManager entityManager;
 
+	@Override
 	protected EntityManager getEntityManager() {
 		return entityManager;
 	}

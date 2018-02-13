@@ -6,5 +6,4 @@ import me.kuann.jee.first.model.Teacher;
 
 @Stateless
 public class TeacherDao extends PublicBaseDao<Teacher> {
-
 }

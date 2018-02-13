@@ -7,8 +7,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
-import javax.annotation.Resource;
-import javax.ejb.SessionContext;
 import javax.persistence.EntityGraph;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -27,11 +25,7 @@ import me.kuann.jee.first.model.BaseEntity;
 
 public abstract class BaseDao<T extends BaseEntity> {
 
-	protected static final String PERSISTENCE_LOADGRAPH_HINT = "javax.persistence.loadgraph";
 	private Class<T> persistentClass;
-
-	@Resource
-	private SessionContext sessionContext;
 
 	protected abstract EntityManager getEntityManager();
 	
@@ -83,14 +77,6 @@ public abstract class BaseDao<T extends BaseEntity> {
 		for (T entity : entitiesToBeDeleted) {
 			remove(entity);
 		}
-	}
-
-	public String getPrincipalName() {
-		String principalName = AuditingEntityListener.DEFAULT_PRINCIPAL;
-		if (sessionContext != null) {
-			principalName = sessionContext.getCallerPrincipal().getName();
-		}
-		return principalName;
 	}
 
 	/**
