@@ -14,7 +14,7 @@ import org.jboss.arquillian.persistence.UsingDataSet;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import me.kuann.jee.first.dao.CourseDao;
+import me.kuann.jee.first.dao.master.CourseDao;
 import me.kuann.jee.first.model.Course;
 
 @RunWith(Arquillian.class)

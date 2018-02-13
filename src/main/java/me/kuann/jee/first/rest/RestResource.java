@@ -12,13 +12,18 @@ import javax.ws.rs.core.MediaType;
 import me.kuann.jee.authorization.AccessibleWithoutRole;
 import me.kuann.jee.first.lang.ClientLocal;
 import me.kuann.jee.first.model.Course;
-import me.kuann.jee.first.service.CourseService;
+import me.kuann.jee.first.model.Student;
+import me.kuann.jee.first.service.master.CourseService;
+import me.kuann.jee.first.service.tenant.StudentService;
 
 @Path("")
 public class RestResource {
 
 	@Inject
 	private CourseService courseService;
+	
+	@Inject
+	private StudentService studentService;
 	
 	@Inject
 	@ClientLocal
@@ -29,6 +34,13 @@ public class RestResource {
 	@Path("course")
 	public List<Course> getAllCourses() {
 		return courseService.getAllCourses();
+	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("student")
+	public List<Student> getAllStudents() {
+		return studentService.getAllStudents();
 	}
 	
 	@GET

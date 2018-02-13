@@ -142,6 +142,13 @@
 			<version>0.0.1-SNAPSHOT</version>
 			<type>jar</type>
 		</dependency>
+		
+		<dependency>
+			<groupId>me.kuann.jee</groupId>
+			<artifactId>jee-multitenancy</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>jar</type>
+		</dependency>
 
 	</dependencies>
 

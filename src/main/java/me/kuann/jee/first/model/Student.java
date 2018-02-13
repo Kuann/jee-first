@@ -16,13 +16,18 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "teacher")
-public class Teacher extends BaseEntity {
+@Table(name = "student")
+public class Student extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "teacher_code", nullable = false)
-	private String teacherCode;
+	@Column(name = "student_code", nullable = false)
+	private String studentCode;
 	
-	@Column(name = "teacher_name", nullable = false)
-	private String teacherName;
+	@Column(name = "student_name", nullable = false)
+	private String studentName;
+	
+	@Column(name = "course_code", nullable = false)
+	private String courseCode;
+	
+	private transient Course course;
 }

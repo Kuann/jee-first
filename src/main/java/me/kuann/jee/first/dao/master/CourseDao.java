@@ -1,4 +1,4 @@
-package me.kuann.jee.first.dao;
+package me.kuann.jee.first.dao.master;
 
 import javax.ejb.Stateless;
 
