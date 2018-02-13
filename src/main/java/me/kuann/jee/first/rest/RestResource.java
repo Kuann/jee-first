@@ -9,7 +9,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import me.kuann.first.authorization.AccessibleWithoutRole;
+import me.kuann.jee.first.authorization.AccessibleWithoutRole;
 import me.kuann.jee.first.lang.ClientLocal;
 import me.kuann.jee.first.model.Course;
 import me.kuann.jee.first.service.CourseService;

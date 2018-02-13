@@ -1,4 +1,4 @@
-package me.kuann.first.authorization;
+package me.kuann.jee.first.authorization;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
