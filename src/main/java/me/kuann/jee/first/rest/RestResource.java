@@ -9,6 +9,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import me.kuann.jee.authorization.AccessibleWithoutRole;
 import me.kuann.jee.first.lang.ClientLocal;
 import me.kuann.jee.first.model.Course;
 import me.kuann.jee.first.service.CourseService;
@@ -33,6 +34,7 @@ public class RestResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("lang")
+	@AccessibleWithoutRole
 	public Locale getLocal() {
 		return local;
 	}
